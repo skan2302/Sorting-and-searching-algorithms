@@ -9,17 +9,17 @@ END
 
 PROCEDURE insertionSort (VAR tab: ARRAY_OF INTEGER)
 VAR
-    i:INTEGER;
+    i,j,tmp:INTEGER;
+    
 BEGIN
-    VAR
-    i,j,n:INTEGER
-BEGIN
-    n:=tab.length;
+    i,j:=0;
     FOR i FROM 0 TO n-1 STEP 1  DO
-        FOR j FROM 0 TO n-i-1 STEP step  DO
-            IF (tab[j]> tab[j+1]) THEN
-                swap(tab[i],tab[j+1])
-            END_IF
-        END_FOR
+        tmp:=tab[i];
+        j:=i-1
+         WHILE (j>=1) and (tmp<tab[j]) DO
+            tab[j+1]:=tab[j];
+            j:=j-1
+         END_WHILE 
+        tab[j+1]:=tmp
     END_FOR
 END
